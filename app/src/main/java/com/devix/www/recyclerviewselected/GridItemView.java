@@ -24,6 +24,6 @@ public class GridItemView extends FrameLayout {
     }
 
     public void dysplay(boolean isSelected) {
-        textView.setBackgroundResource(isSelected ? R.drawable.green_square : R.drawable.gray_square);
+        textView.setBackgroundResource(isSelected ? R.color.colorAccent : R.color.colorPrimary);
     }
 }

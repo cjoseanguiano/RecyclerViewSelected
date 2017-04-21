@@ -3,6 +3,7 @@ package com.devix.www.recyclerviewselected;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
             "L", "M", "N", "O", "P", "Q", "R", "S", "T",
             "U", "V", "W", "X", "Y", "Z"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 if (selectedIndex > -1) {
                     adapter.selectedPositions.remove(selectedIndex);
                     ((GridItemView) view).dysplay(false);
-                    selectedStrings.add((String) parent.getItemAtPosition(position));
+                    selectedStrings.remove(parent.getItemAtPosition(position));
                 } else {
                     adapter.selectedPositions.add(position);
                     ((GridItemView) view).dysplay(true);
-                    selectedStrings.add((String)parent.getItemAtPosition(position));
+                    selectedStrings.add((String) parent.getItemAtPosition(position));
+                    Log.e("A", "A" + selectedStrings);
                 }
             }
         });
